@@ -1,20 +1,51 @@
+/**
+ * AuthPage.tsx
+ * Client-side authentication form with submit handling
+ */
 "use client";
 
+import React, { useState } from "react";
+import { useRouter } from "next/navigation";
+import Image from "next/image";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import GetAppIcon from "@mui/icons-material/GetApp";
-import React from "react";
+
+import logoImg from "@/assets/logo.png";
+import dogImg from "@/assets/dog.png";
 
 const AuthPage: React.FC = () => {
+  const router = useRouter();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    // Basic validation
+    if (!email || !password) {
+      alert("Please enter both email and password.");
+      return;
+    }
+    // TODO: Replace with actual authentication logic
+    console.log("Logging in with:", { email, password });
+    // On success, navigate to dashboard (or desired route)
+    router.push("/home");
+  };
+
   return (
     <div className="min-h-screen flex flex-col md:flex-row">
       {/* LEFT SIDE */}
-      <div className="md:w-1/2 w-full flex items-center justify-center p-8">
+      <div className="md:w-1/2 w-full bg-custom_red flex items-center justify-center p-8">
         <div className="w-full max-w-md space-y-6">
           {/* Logo + Title */}
           <div className="flex items-center space-x-2">
-            {/* replace with your real logo or SVG */}
-            <div className="w-8 h-8 bg-accent-500 rounded-full" />
+            <Image
+              src={logoImg}
+              alt="Marshee logo"
+              width={32}
+              height={32}
+              className="rounded-full"
+            />
             <span className="text-2xl font-bold">Marshee</span>
           </div>
 
@@ -26,8 +57,8 @@ const AuthPage: React.FC = () => {
             </p>
           </div>
 
-          {/* Form */}
-          <form className="space-y-4">
+          {/* Auth Form */}
+          <form onSubmit={handleSubmit} className="space-y-4">
             {/* Email */}
             <div>
               <label htmlFor="email" className="block text-gray-700 mb-1">
@@ -37,6 +68,8 @@ const AuthPage: React.FC = () => {
                 <input
                   id="email"
                   type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   placeholder="you@gmail.com"
                   className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-200"
                 />
@@ -53,6 +86,8 @@ const AuthPage: React.FC = () => {
                 <input
                   id="password"
                   type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••"
                   className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-200"
                 />
@@ -130,10 +165,16 @@ const AuthPage: React.FC = () => {
           </p>
         </div>
 
-        {/* dog image placeholder */}
+        {/* Dog Image */}
         <div className="absolute inset-0 flex items-end justify-end">
-          {/* Put your <img src="/your-dog.png" alt="Happy dog" /> here */}
-          <div className="w-2/3 h-2/3 bg-gray-200 rounded-lg" />
+          <div className="w-full h-2/3 relative">
+            <Image
+              src={dogImg}
+              alt="Happy dog"
+              fill
+              className="object-cover rounded-lg"
+            />
+          </div>
         </div>
       </div>
     </div>
