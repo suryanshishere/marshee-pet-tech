@@ -1,7 +1,3 @@
-/**
- * AuthPage.tsx
- * Client-side authentication form with submit handling
- */
 "use client";
 
 import React, { useState } from "react";
@@ -10,9 +6,6 @@ import Image from "next/image";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import GetAppIcon from "@mui/icons-material/GetApp";
-
-import logoImg from "@/assets/logo.png";
-import dogImg from "@/assets/dog.png";
 
 const AuthPage: React.FC = () => {
   const router = useRouter();
@@ -40,7 +33,7 @@ const AuthPage: React.FC = () => {
           {/* Logo + Title */}
           <div className="flex items-center space-x-2">
             <Image
-              src={logoImg}
+              src={"/assets/logo.png"}
               alt="Marshee logo"
               width={32}
               height={32}
@@ -156,7 +149,7 @@ const AuthPage: React.FC = () => {
 
       {/* RIGHT SIDE */}
       <div className="md:w-1/2 w-full bg-primary-50 flex items-center justify-center p-8 relative">
-        <div className="max-w-lg text-center z-10">
+        <div className="max-w-lg text-center z-10 mb-40 w-80">
           <h2 className="text-3xl font-bold text-accent-500 mb-2">
             Grow your pet service business
           </h2>
@@ -169,10 +162,10 @@ const AuthPage: React.FC = () => {
         <div className="absolute inset-0 flex items-end justify-end">
           <div className="w-full h-2/3 relative">
             <Image
-              src={dogImg}
+              src={"/assets/dog.png"}
               alt="Happy dog"
               fill
-              className="object-cover rounded-lg"
+              className="object-cover rounded-lg opacity-50"
             />
           </div>
         </div>

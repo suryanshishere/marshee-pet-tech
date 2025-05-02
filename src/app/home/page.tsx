@@ -11,7 +11,6 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import PeopleIcon from "@mui/icons-material/People";
 import DescriptionIcon from "@mui/icons-material/Description";
 import LogoutIcon from "@mui/icons-material/Logout";
-import logoImg from "@/assets/logo.png";
 import Dashboard from "@/components/Dashboard";
 import TeamManagement from "@/components/TeamManagement";
 import Services from "@/components/Services";
@@ -67,7 +66,7 @@ const Home: React.FC = () => {
       <aside className="relative w-64 bg-white border-r">
         <div className="flex items-center p-6">
           <Image
-            src={logoImg}
+            src={"/assets/logo.png"}
             alt="Marshee logo"
             width={32}
             height={32}

@@ -114,23 +114,26 @@ const Dashboard: React.FC = () => (
           id: "add-service",
           title: "Add Service",
           subtitle: "Create a new service offering",
+          img:"/assets/add-service.png"
         },
         {
           id: "view-appointments",
           title: "View Appointments",
           subtitle: "Manage your schedule",
+          img: "/assets/view-appointments.png"
         },
         {
           id: "add-team",
           title: "Add Team Member",
           subtitle: "Expand Your Team",
+          img: "/assets/add-team.png"
         },
       ].map((card) => (
         <div
           key={card.id}
           className="relative h-40 rounded-lg overflow-hidden bg-gray-200"
           style={{
-            backgroundImage: `url('/images/${card.id}.jpg')`,
+            backgroundImage: `url('${card.img}')`,
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
